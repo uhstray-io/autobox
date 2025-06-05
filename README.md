@@ -12,7 +12,7 @@ Rust, GO, Python, NixOS, and Docker driven Orchestration Box for Setting up Busi
 
 - Use GO to develop Webserver Resources and REST API
 - Use Python to develop Scripting and Automation
-- Use GO to develop for Dioxus to develop GUI Resources
+- Use Rust and Dioxus to develop GUI Resources
 - Use NixOS to develop OS & Networking Configurations and Package Mangement (using Nix Flakes for reproducibility)
 - Use Docker to develop Container Configurations
 - Use PXE to access devices on LAN

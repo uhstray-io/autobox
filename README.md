@@ -73,21 +73,10 @@ graph TB
 
     subgraph "Operations Stack"
         OO[Operations]
-        R[Wisbot<br/>Search/LLM/Events]
-        W[Observability & Security]
+        W[Observability & Security Stack]
         Q[Caddy<br/>Reverse Proxy/SSL]
         AA[GitHub Actions CI/CD]
-        subgraph "Observability & Security Stack"
-            W1[Authentik]
-            W2[WireGuard VPN]
-            U4[Grafana]
-            X[pfSense Firewall]
-        end
-        V[Cloud Services]
-        subgraph "External Services"
-            AB[Cloudflare<br/>DNS/SSL/CDN]
-            AC[Cloud Backup<br/>Digital Ocean/Vercel]
-        end
+        V[Cloud & Backup Services]
     end
 
     
@@ -95,45 +84,23 @@ graph TB
         II[Infrastructure]
         subgraph "Infrastructure Services"
             L[NixOS Config Manager<br/>with Flakes]
+            UbuntuOrch[Ubuntu <br/>Orchestrator]
             M[Docker Orchestrator]
             N[Network Controller]
             O[PXE Boot Server]
             P[Git Version Control]
         end
         subgraph "Infrastructure Systems"
+            Ubuntu[Ubuntu Machines]
             Y[NixOS Machines]
             Z[Docker Containers]
         end
     end
 
-    subgraph "Data Ecosystem"
-        T[Databases]
-        subgraph "Database Stack"
-            T1[PostgreSQL]
-            T2[Postgres Vector DB]
-            T3[Prometheus]
-            T4[Model Context Protocol]
-        end
-    end
-
-    subgraph "Business Resources"
-        U[Web Resources]
-        subgraph "Web/Cloud Stack"
-            U1[Wiki.js - Documentation]
-            U2[Nextcloud - Cloud Storage & Documents]
-            U3[NocoDB - Project Management]
-        end
-    end
-
-    subgraph "AI Ecosystem"
-        S[WisLLM<br/>Agentic LLM]
-        subgraph "LLM Stack"
-            S1[Ollama]
-            S2[LangChain]
-            S3[vLLM]
-        end
-    end
-        
+    T[Data Warehouse]
+    U[Web/Cloud Stack]
+    R[Wisbot<br/>Search & Events]
+    S[WisLLM<br/>Agentic LLM]
 
     A --> B
     A --> C
@@ -157,16 +124,17 @@ graph TB
     H <--> II
     I <--> II
 
+    II --> UbuntuOrch
     II --> L
     II --> M
     II --> N
     II --> O
     II --> P
 
+    UbuntuOrch --> Ubuntu
     L --> Y
     M --> Z
-    N --> X
-    O --> X
+    O --> UbuntuOrch
     O --> Y
 
     J --> R
@@ -179,26 +147,6 @@ graph TB
     OO --> Q
     OO --> V
     OO --> AA
-
-    S --> S1
-    S --> S2
-    S --> S3
-
-    T --> T1
-    T --> T2
-    T --> T3
-    T --> T4
-
-    U --> U1
-    U --> U2
-    U --> U3
-
-    W --> W1
-    W --> W2
-    W --> U4
-
-    Q --> AB
-    V --> AC
 
     style A fill:#dea584
     style F fill:#00ADD8

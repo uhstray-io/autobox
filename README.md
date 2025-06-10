@@ -31,16 +31,8 @@ Rust, GO, Python, NixOS, and Docker driven Orchestration Box for Setting up Busi
     - Caddy for Reverse Proxy and SSL Certificate Management
     - Wisbot for Search, LLM Orchestration, Event Management and Automation
     - WisLLM for Agentic LLM Management
-      - Ollama
-      - LangChain
-      - vLLM
-    - Databases
-      - PostgreSQL
-      - Postgres Vector DB
-      - Prometheus
-      - Model Context Protocol
-    - Website Resources
-      - Wiki.js for Documentation
+    - Data Warehouse for Data Storage and Management
+    - Web/Cloud Stack for Web Applications
     - Nextcloud for Local Cloud and File Management
     - NocoDB for Project Management
     - Grafana for Monitoring and Visualization
